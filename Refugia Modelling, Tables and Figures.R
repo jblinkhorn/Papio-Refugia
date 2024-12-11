@@ -147,8 +147,8 @@ for(k_popn in 1:7){
   tryCatch({
     ref_stats <- data.frame()#create dataframe
     for(i in c(1:length(big_wider_refugia_list[[k_popn]]))){
-      ref_stats[i,1] <- length(cells(big_wider_refugia_list[[k_popn]][[i]]))*3.08025 #cell count for masked refugia #to thousand sq kms
-      ref_stats[i,2] <- length(cells(big_wider_habitable_list[[k_popn]][[i]]))*3.08025 #cell count for habitable zones#to thousand sq kms
+      ref_stats[i,1] <- length(cells(big_wider_refugia_list[[k_popn]][[i]]))*cell_to_km[[x_model]] #cell count for masked refugia #to thousand sq kms
+      ref_stats[i,2] <- length(cells(big_wider_habitable_list[[k_popn]][[i]]))*cell_to_km[[x_model]] #cell count for habitable zones#to thousand sq kms
       ref_stats[i,3] <- round(length(cells(big_wider_refugia_list[[k_popn]][[i]]))/length(cells(big_wider_habitable_list[[k_popn]][[i]])), 3)
     }
     names(ref_stats) <- c("Refugia cells", "Habitable cells", "Proportional Refugia")
